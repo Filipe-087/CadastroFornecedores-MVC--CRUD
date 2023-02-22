@@ -1,0 +1,44 @@
+﻿@model FornecedorModel
+@{
+    ViewData["Title"] = "Editar Fornecedor";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Editar Fornecedor</h1>
+
+
+</div>
+
+<form asp-asp-controller="Contato" asp-action="Alterar" method="post">
+    <input type="hidden" asp-for="Id"/>
+    <div class="form-group">
+        <label for="id">Id:</label>
+        <input type="number" asp-for="Id" class="form-control" placeholder="Digite o Id">
+        @Html.ValidationMessageFor(x=>x.Id)
+    </div>
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" asp-for="Nome" maxLength="100" class="form-control" placeholder="Digite o Nome">
+        @Html.ValidationMessageFor(x=>x.Nome)
+    </div>
+    <div class="form-group">
+        <label for="cnpj">Cnpj:</label>
+       <input type="text" minlength="14" maxlength="14" onkeypress="return event.charCode >= 48 && event.charCode <= 57" asp-for="Cnpj"  class="form-control" placeholder="Digite o Cnpj">
+        @Html.ValidationMessageFor(x=>x.Cnpj)
+    </div>
+
+    <div class="form-group">
+        <label for="especialidade">Selecione sua especialidade:</label>
+        <select asp-for="Especialidade" class="form-select" placeholder="Digite sua especialidade">
+            <option> </option>
+            <option>Comércio</option>
+            <option>Serviço</option>
+            <option>Indústria</option>
+        </select>
+        @Html.ValidationMessageFor(x=>x.Especialidade)
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Fornecedores" asp-action="Index" role="button">Voltar</a>
+</form>

@@ -1,0 +1,15 @@
+﻿@model FornecedorModel
+@{
+    ViewData["Title"] = "Confirmação de exclusão";
+}
+
+<div class ="text-center">
+    <br/>
+    <br/>
+        <h3> Realmente deseja apagar o Fornecedor (@Model.Nome)?</h3>
+    <br/>
+
+
+    <a class="btn btn-primary btn-block" asp-action="Index" asp-controller="Fornecedores" role="button" >Cancelar</a>
+    <a class="btn btn-danger btn-block" asp-action="Apagar"  asp-controller="Fornecedores" asp-route-id="@Model.Id" role="button">Confirmar</a>
+</div>
